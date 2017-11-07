@@ -3,10 +3,6 @@ import json
 
 app = Flask(__name__)
 
-@app.route("/")
-def render_main():
-    return render_template('home.html',options=options)
-
 def get_state_options(counties):
     states = []
     for s in counties:
@@ -17,6 +13,9 @@ def get_state_options(counties):
         options += Markup("<option value=\"" + states[o] + "\">" + states[o] + "</option>")
     return options
     
+@app.route("/")
+def render_main():
+    return render_template('home.html',options=get_state_options(counties))
     
 if __name__=="__main__":
     app.run(debug=False, port=54321)
