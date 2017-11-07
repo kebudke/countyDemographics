@@ -15,7 +15,7 @@ def get_state_options(counties):
     
 @app.route("/")
 def render_main():
-    return render_template('home.html',options="")
+    return render_template('home.html',options="ha")
     
 if __name__=="__main__":
     app.run(debug=False, port=54321)
