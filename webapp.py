@@ -10,7 +10,7 @@ def render_home():
         counties = json.load(demographics_data)
     return render_template('home.html',options=get_state_options(counties))
 
-def get_state_options(counties):
+def get_state_options():
     states = []
     for s in counties:
         if s["State"] not in states:
