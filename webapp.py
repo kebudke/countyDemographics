@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 def get_state_options():
     with open('county_demographics.json') as demographics_data:
-    counties = json.load(demographics_data)
+        counties = json.load(demographics_data)
     states = []
     for s in counties:
         if s["State"] not in states:
