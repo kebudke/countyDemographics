@@ -4,7 +4,9 @@ import os
 
 app = Flask(__name__)
 
-def get_state_options(counties):
+def get_state_options():
+    with open('county_demographics.json') as demographics_data:
+    counties = json.load(demographics_data)
     states = []
     for s in counties:
         if s["State"] not in states:
@@ -15,10 +17,8 @@ def get_state_options(counties):
     return options
 
 @app.route("/")
-def render_home():
-    with open('county_demographics.json') as demographics_data:
-        counties = json.load(demographics_data)
-    return render_template('home.html',options=get_state_options(counties))
+def render_main():
+    return render_template('home.html',options = get_state_options())
 
 if __name__=="__main__":
     app.run(debug=False, port=54321)
