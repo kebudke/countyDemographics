@@ -21,11 +21,10 @@ def get_fun_fact(state):
     return fact
 
 @app.route("/")
-if 'state' in request.args['state']:
-    def render_main():
+def render_main():
+    if 'state' in request.args['state']:
         return render_template('home.html', options = get_state_options(), funfact = get_fun_fact(request.args['state']))
-else:
-    def render_main():
+    else:
         return render_template('home.html', options = get_state_options())
 
 if __name__=="__main__":
