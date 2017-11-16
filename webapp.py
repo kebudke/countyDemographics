@@ -17,15 +17,12 @@ def get_state_options():
     return options
 
 def get_fun_fact():
-    with open('county_demographics.json') as demographics_data:
-        counties = json.load(demographics_data)
-    education = {}
-    
+    fact = request.args['state']
     return fact
 
 @app.route("/")
 def render_main():
-    return render_template('home.html', options = get_state_options())
+    return render_template('home.html', options = get_state_options(), funfact = get_fun_fact())
 
 if __name__=="__main__":
     app.run(debug=False, port=54321)
