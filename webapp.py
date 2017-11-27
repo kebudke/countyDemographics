@@ -22,7 +22,7 @@ def get_fun_fact(state):
 
 @app.route("/")
 def render_main():
-    if 'state' in request.args['state']:
+    if 'state' in request.args[]:
         return render_template('home.html', options = get_state_options(), funfact = get_fun_fact(request.args['state']))
     else:
         return render_template('home.html', options = get_state_options())
