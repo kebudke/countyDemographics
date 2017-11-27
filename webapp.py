@@ -19,7 +19,7 @@ def get_state_options():
 def get_fun_fact(state):
     with open('county_demographics.json') as demographics_data:
         counties = json.load(demographics_data)
-    fact = state
+    fact = (counties[0]["Population"]["2014 Population"])*((counties[0]["Education"]["Bachelor's Degree or Higher"])*.01)
     return fact
 
 @app.route("/")
