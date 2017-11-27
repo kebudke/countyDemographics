@@ -17,6 +17,8 @@ def get_state_options():
     return options
 
 def get_fun_fact(state):
+    with open('county_demographics.json') as demographics_data:
+        counties = json.load(demographics_data)
     fact = state
     return fact
 
