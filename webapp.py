@@ -22,12 +22,12 @@ def get_fun_fact(state):
 
 @app.route("/")
 def render_main():
-    if 'state' in args[]:
+    if 'state' in request.args:
         return render_template('home.html', options = get_state_options(), funfact = get_fun_fact(request.args['state']))
     else:
         return render_template('home.html', options = get_state_options())
 
 if __name__=="__main__":
-    app.run(debug=False, port=54321)
+    app.run(debug=True)
 
     
