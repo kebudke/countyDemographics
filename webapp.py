@@ -34,9 +34,9 @@ def get_fun_fact(state):
             popwithb[b["State"]] = ((b["Education"]["Bachelor's Degree or Higher"])*.01)*(b["Population"]["2014 Population"])
     for p in counties:
             percentage[p["State"]] = (popwithb[p["State"]]/totalpop[p["State"]])*100
-    fact = percentage[state]
+    fact = "{0:.2f}".format(percentage[state])
     st = state
-    return str(fact) + "% of the citizens of " + st + " have a bachelor's degree!"
+    return fact + "% of the citizens of " + st + " have a bachelor's degree!"
 
 @app.route("/")
 def render_main():
