@@ -33,7 +33,6 @@ def get_fun_fact(state):
         else:
             popwithb[b["State"]] = ((b["Education"]["Bachelor's Degree or Higher"])*.01)*(b["Population"]["2014 Population"])
     for p in counties:
-        if p["State"] not in percentage:
             percentage[p["State"]] = popwithb[p["State"]]/totalpop[p["State"]]
     fact = percentage["CA"]        
     return fact + "%"
