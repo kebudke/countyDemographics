@@ -22,7 +22,10 @@ def get_fun_fact(state):
     totalpop = {}
     popwithb = {}
     for s in counties:
-        totalpop[s["State"]] = totalpop[s["State"]] + s["Population"]["2014 Population"]
+        if s["State"] in totalpop:
+            totalpop[s["State"]] = totalpop[s["State"]] + counties[s]["Population"]["2014 Population"]
+        else:
+            totalpop[s["State"]] = counties[s]["Population"]["2014 Population"]
     fact = totalpop["CA"]
     return fact
 
