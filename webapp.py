@@ -26,7 +26,7 @@ def get_fun_fact(state):
             totalpop[s["State"]] = totalpop[s["State"]] + s["Population"]["2014 Population"]
         else:
             totalpop[s["State"]] = s["Population"]["2014 Population"]
-    fact = totalpop["CA"]
+    fact = totalpop["NY"]
     return fact
 
 @app.route("/")
