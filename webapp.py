@@ -23,7 +23,7 @@ def get_fun_fact(state):
     popwithb = {}
     for s in counties:
         totalpop[s["State"]] = totalpop[s["State"]] + s["Population"]["2014 Population"]
-    fact = totalpop[state]
+    fact = totalpop["CA"]
     return fact
 
 @app.route("/")
