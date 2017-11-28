@@ -21,17 +21,22 @@ def get_fun_fact(state):
         counties = json.load(demographics_data)
     totalpop = {}
     popwithb = {}
+    percentage = {}
     for s in counties:
         if s["State"] in totalpop:
             totalpop[s["State"]] = totalpop[s["State"]] + s["Population"]["2014 Population"]
         else:
             totalpop[s["State"]] = s["Population"]["2014 Population"]
-#     for b in counties:
-#         if s["State"] in popwithb:
-#             popwithb[s["State"]] = popwithb[s["State"]] + s["Population"]["2014 Population"]
-#         else:
-#             popwithb[s["State"]] = s["Population"]["2014 Population"]
-    return fact
+    for b in counties:
+        if b["State"] in popwithb:
+            popwithb[b["State"]] = popwithb[s["State"]] + ((b["Education"]["Bachelor's Degree or Higher"])*.01)*b["Population"]["2014 Population"])
+        else:
+            popwithb[b["State"]] = ((b["Education"]["Bachelor's Degree or Higher"])*.01)*b["Population"]["2014 Population"])
+    for p in counties:
+        if p["State"] not in percentage:
+            percentage[p["State"]] = popwithb[p["State"]]/totalpop[p["State"]]
+    fact = percentage["CA"]        
+    return fact + "%"
 
 @app.route("/")
 def render_main():
