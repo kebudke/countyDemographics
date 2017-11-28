@@ -35,7 +35,7 @@ def get_fun_fact(state):
     for p in counties:
             percentage[p["State"]] = popwithb[p["State"]]/totalpop[p["State"]]
     fact = percentage["CA"]        
-    return fact + "%"
+    return fact
 
 @app.route("/")
 def render_main():
