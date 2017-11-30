@@ -46,6 +46,6 @@ def render_main():
         return render_template('home.html', options = get_state_options())
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(debug=False)
 
     
